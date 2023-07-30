@@ -18,15 +18,22 @@ class WorstUI:
             # Bind the click event for each label to the on_click method
             label.bind('<Button-1>', lambda event, num=i: self.on_click(num))
 
-        # Create a label to display the entered phone number
-        self.phone_label = tk.Label(root, text='', font=('Helvetica', 20))
-        self.phone_label.place(x=180, y=300)
+        # Create a label to display the instructions
+        self.instruction_label = tk.Label(root, text='Please enter your phone number:', font=('Helvetica', 16))
+        self.instruction_label.place(x=100, y=20)
+
+        # Create a disabled textbox to display the entered phone number
+        self.phone_entry = tk.Entry(root, font=('Helvetica', 20), state=tk.DISABLED)
+        self.phone_entry.place(x=100, y=60, width=300)
 
     def on_click(self, num):
         # Append the clicked number to the phone number
         self.phone_number += str(num)
-        # Update the phone number display label
-        self.phone_label.config(text=self.phone_number)
+        # Update the phone number display textbox
+        self.phone_entry.config(state=tk.NORMAL)
+        self.phone_entry.delete(0, tk.END)
+        self.phone_entry.insert(0, self.phone_number)
+        self.phone_entry.config(state=tk.DISABLED)
 
     def move_numbers(self):
         # Move the numbers randomly on the screen
