@@ -1,5 +1,12 @@
 # worst-input-ui
 
+## Table of Contents
+- [Description](#description)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Contribution](#contribution)
+
 ## Description
 This is my take on the "Worst Phone Number UI" trend, a fun and playful "worst UI" program for entering a phone number. The program displays moving numbers on the screen, and users can click on the numbers to enter their phone number. Once the user enters 10 digits, a message box will ask if that is their number. Depending on the response, different message boxes will be displayed.
 
