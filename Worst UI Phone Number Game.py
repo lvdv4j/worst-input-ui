@@ -26,6 +26,17 @@ class WorstUI:
         self.phone_entry = tk.Entry(root, font=('Helvetica', 20), state=tk.DISABLED)
         self.phone_entry.place(x=100, y=60, width=300)
 
+        # Calculate the dimensions to fit all the elements
+        width = 500
+        height = 350
+
+        # Set the initial size and position of the window
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width - width) // 2
+        y = (screen_height - height) // 2
+        root.geometry(f"{width}x{height}+{x}+{y}")
+
     def on_click(self, num):
         # Append the clicked number to the phone number
         self.phone_number += str(num)
