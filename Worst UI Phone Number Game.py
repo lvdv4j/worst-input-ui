@@ -61,7 +61,7 @@ class WorstUI:
     def show_confirmation(self):
         response = messagebox.askquestion("Confirmation", f"Is this your number {self.phone_number}?")
         if response == 'yes':
-            messagebox.showinfo("Congratulations", "How on earth did you get that right?!")
+            messagebox.showinfo("Congratulations", "Liar! How on earth did you get that right?!")
         else:
             messagebox.showinfo("Try Again", "Try again.")
         # Clear the phone number after the message box is closed
