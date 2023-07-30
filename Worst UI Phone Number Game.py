@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import random
 
 class WorstUI:
@@ -46,12 +47,28 @@ class WorstUI:
         self.phone_entry.insert(0, self.phone_number)
         self.phone_entry.config(state=tk.DISABLED)
 
+        # Check if the phone number has the required length (e.g., 10 digits)
+        if len(self.phone_number) == 10:
+            self.show_confirmation()
+
     def move_numbers(self):
         # Move the numbers randomly on the screen
         for label in self.labels:
             label.place(x=random.randint(50, 400), y=random.randint(50, 250))
         # Schedule the next movement after 500 milliseconds
         self.root.after(500, self.move_numbers)
+
+    def show_confirmation(self):
+        response = messagebox.askquestion("Confirmation", f"Is this your number {self.phone_number}?")
+        if response == 'yes':
+            messagebox.showinfo("Congratulations", "How on earth did you get that right?!")
+        else:
+            messagebox.showinfo("Try Again", "Try again.")
+        # Clear the phone number after the message box is closed
+        self.phone_number = ''
+        self.phone_entry.config(state=tk.NORMAL)
+        self.phone_entry.delete(0, tk.END)
+        self.phone_entry.config(state=tk.DISABLED)
 
 if __name__ == "__main__":
     root = tk.Tk()
